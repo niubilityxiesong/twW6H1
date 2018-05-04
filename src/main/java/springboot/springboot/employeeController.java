@@ -40,7 +40,23 @@ public class employeeController {
     //    return "delete success!";
     //}
 
+    @PostMapping(value = "findperson")
+    public employee findPerson(Integer id){
 
+        employee result = people.get(id);
+        return result;
+    }
+
+    @PostMapping(value = "changeperson")
+    public String changePerson(employee otherperson){
+
+        if (!people.containsKey(otherperson.getId())){
+            return "Have no person";
+        }
+
+        people.put(otherperson.getId(), otherperson);
+        return "change message success!";
+    }
 
     @GetMapping(value = "showlist")
     public List<employee> showAllPerson(){
