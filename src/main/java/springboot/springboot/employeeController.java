@@ -1,9 +1,6 @@
 package springboot.springboot;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -19,9 +16,19 @@ public class employeeController {
 
         if (addone.getAge() > 0 && addone.getName() != null){
             people.put(addone.getId(), addone);
-            return addone.getName() + "succsee";
+            return "Add" + addone.getName() + "succsee";
         }
         return addone.getName() + "fail";
+    }
+
+    @DeleteMapping(value = "delete/{id}")
+    public String deletePerson(@PathVariable Integer id){
+
+        if (id < 0)
+            return "id should be more than 0";
+
+        people.remove(id);
+        return "delete success!";
     }
 
     @GetMapping(value = "showlist")
