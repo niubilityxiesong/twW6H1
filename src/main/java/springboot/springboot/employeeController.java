@@ -30,6 +30,17 @@ public class employeeController {
         people.remove(id);
         return "delete success!";
     }
+    //@PostMapping(value = "delete")
+    //public String deletePerson(Integer id){
+//
+    //    if (id < 0)
+    //        return "id should be more than 0";
+//
+    //    people.remove(id);
+    //    return "delete success!";
+    //}
+
+
 
     @GetMapping(value = "showlist")
     public List<employee> showAllPerson(){
