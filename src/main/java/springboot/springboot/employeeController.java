@@ -16,7 +16,7 @@ public class employeeController {
 
         if (addone.getAge() > 0 && addone.getName() != null){
             people.put(addone.getId(), addone);
-            return "Add" + addone.getName() + "succsee";
+            return "Add succsee";
         }
         return addone.getName() + "fail";
     }
